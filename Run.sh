@@ -10,6 +10,7 @@ function validateProgramIsInstalled () {
     echo "Validating ${appName} install..."
 
 	if command -v "$command" >/dev/null 2>&1; then
+		printf "$appName is installed!\n\n"
 		true;
 	elif "$exitOnFailure"; then
 		echo >&2 "${appName} install failed? :(";
@@ -41,38 +42,32 @@ if !(validateProgramIsInstalled "brew" "Homebrew" false); then
 	validateProgramIsInstalled "brew" "Homebrew" true
 fi
 
-echo "Homebrew is installed!"
-
 # ------
 # Python
 # ------
 validateBrewInstall "python3" "Python 3"
-echo "Python 3 is installed!"
 
 # ------
 # Pip3
 # ------
 validateBrewInstall "pip3" "pip3"
-echo "pip3 is installed!"
 
 # ------
 # libusb
 # ------
 echo "Validating libusb install..."
 brew install libusb; # TODO figure out way to see if installed, since it's not on path?
-echo "libusb is installed!"
+printf "libusb is installed!\n\n"
 
 # ----------
 # VirtualEnv
 # ----------
 validateBrewInstall "virtualenv" "virtualenv"
-echo "virtualenv is installed!"
 
 # ----------
 # pipenv
 # ----------
 validateBrewInstall "pipenv" "pipenv"
-echo "pipenv is installed!"
 
 # ==========================================
 # Setting up virtual environemnt for program
