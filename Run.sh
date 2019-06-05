@@ -22,7 +22,7 @@ function validateProgramIsInstalled () {
 
 function validateBrewInstall () {
 	local command=${1}
-	local appName=${2}
+	local appName=${2:-$1}
 
     if !(validateProgramIsInstalled "$command" "$appName" false); then
 		echo >&2 "Attempting to install $appName...";
@@ -50,7 +50,7 @@ validateBrewInstall "python3" "Python 3"
 # ------
 # Pip3
 # ------
-validateBrewInstall "pip3" "pip3"
+validateBrewInstall "pip3"
 
 # ------
 # libusb
@@ -62,12 +62,12 @@ printf "libusb is installed!\n\n"
 # ----------
 # VirtualEnv
 # ----------
-validateBrewInstall "virtualenv" "virtualenv"
+validateBrewInstall "virtualenv"
 
 # ----------
 # pipenv
 # ----------
-validateBrewInstall "pipenv" "pipenv"
+validateBrewInstall "pipenv"
 
 # ==========================================
 # Setting up virtual environemnt for program
