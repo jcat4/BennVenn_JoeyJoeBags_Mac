@@ -90,10 +90,10 @@ pipenv run pip3 install -r requirements.txt; # this works a lil better, still no
 # Run the program within the virtual environment!
 # ===============================================
 
-echo "Starting JoeyJoeBags software..."
-pipenv run python3 JoeyJoebags336.py;
 echo "Currently running software!"
+pipenv run python3 -u JoeyJoebags336.py;
+echo "Software has closed"
+exit 0;
 
-# TODO echo out python output as it generates it
 # TODO if python terminates, terminate shell script (and app)
-# TODO doesn't execute "currently running software" until python app closes
+# TODO flashing that huge ROM isn't working. Is there not enough space or something?

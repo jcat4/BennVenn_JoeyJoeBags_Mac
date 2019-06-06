@@ -123,5 +123,9 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
+# VS Code sheeeeit
+.vscode/
+
 # pipenv stuff
 Pipfile
+Pipfile.lock
