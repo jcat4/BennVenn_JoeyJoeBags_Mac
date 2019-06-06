@@ -1,3 +1,8 @@
+#!/bin/bash
+
+PATH=/usr/local/bin:$PATH
+echo $PATH
+
 # ================
 # Install Prereqs
 # ================
@@ -9,13 +14,14 @@ function validateProgramIsInstalled () {
 
     echo "Validating ${appName} install..."
 
-	if command -v "$command" >/dev/null 2>&1; then
+	if command -v "$command" >/dev/null; then
 		printf "$appName is installed!\n\n"
 		true;
 	elif "$exitOnFailure"; then
-		echo >&2 "${appName} install failed? :(";
+		echo "${appName} install failed? :(";
 		exit 1;
 	else
+		echo "${command} not detected on PATH"
 		false;
 	fi
 }
@@ -34,10 +40,9 @@ function validateBrewInstall () {
 # --------
 # Homebrew
 # --------
-echo "Validating Homebrew install..."
 
 if !(validateProgramIsInstalled "brew" "Homebrew" false); then
-	echo >&2 "Attempting to install Homebrew...";
+	echo "Attempting to install Homebrew...";
 	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)";
 	validateProgramIsInstalled "brew" "Homebrew" true
 fi
@@ -87,3 +92,8 @@ pipenv run pip3 install -r requirements.txt; # this works a lil better, still no
 
 echo "Starting JoeyJoeBags software..."
 pipenv run python3 JoeyJoebags336.py;
+echo "Currently running software!"
+
+# TODO echo out python output as it generates it
+# TODO if python terminates, terminate shell script (and app)
+# TODO doesn't execute "currently running software" until python app closes
