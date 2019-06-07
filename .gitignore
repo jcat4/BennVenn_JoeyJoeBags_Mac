@@ -126,6 +126,9 @@ dmypy.json
 # VS Code sheeeeit
 .vscode/
 
+# Only commit compressed app bundle
+JoeyJoeBags.app/
+
 # pipenv stuff
 Pipfile
 Pipfile.lock

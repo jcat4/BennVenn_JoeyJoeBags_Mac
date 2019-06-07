@@ -61,7 +61,12 @@ validateBrewInstall "pip3"
 # libusb
 # ------
 echo "Validating libusb install..."
-brew install libusb; # TODO figure out way to see if installed, since it's not on path?
+
+if !(brew ls --versions libusb > /dev/null); then
+	echo "Installing libusb..."
+	brew install libusb;
+fi
+
 printf "libusb is installed!\n\n"
 
 # ----------
@@ -78,13 +83,8 @@ validateBrewInstall "pipenv"
 # Setting up virtual environemnt for program
 # ==========================================
 
-# Todo just fetch environment instead of creating if it exists?
 pipenv --three;
-# pipenv install -r requirements.txt; # TODO doesn't work
-# pipenv install pyusb; # todo this also isn't working
-# pipenv run pip3 install pyusb; # welp, this works :/ No locks with this, tho. OH WELL.
-pipenv run pip3 install -r requirements.txt; # this works a lil better, still no locking
-
+pipenv install -r requirements.txt;
 
 # ===============================================
 # Run the program within the virtual environment!
@@ -94,6 +94,3 @@ echo "Currently running software!"
 pipenv run python3 -u JoeyJoebags336.py;
 echo "Software has closed"
 exit 0;
-
-# TODO if python terminates, terminate shell script (and app)
-# TODO flashing that huge ROM isn't working. Is there not enough space or something?
