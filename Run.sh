@@ -77,6 +77,9 @@ validateBrewInstall "pipenv"
 # ==========================================
 
 # pipenv --three;
+echo "Pipenv output: ";
+pipenv --venv;
+echo "Doing pipenv install";
 pipenv install -r requirements.txt;
 
 # ===============================================
