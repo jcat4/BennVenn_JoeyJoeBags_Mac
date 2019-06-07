@@ -68,11 +68,6 @@ fi
 printf "libusb is installed!\n\n"
 
 # ----------
-# VirtualEnv
-# ----------
-validateBrewInstall "virtualenv"
-
-# ----------
 # pipenv
 # ----------
 validateBrewInstall "pipenv"
