@@ -42,9 +42,7 @@ function validateBrewInstall () {
 # --------
 
 if !(validateProgramIsInstalled "brew" "Homebrew" false); then
-	echo "Attempting to install Homebrew...";
-	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)";
-	validateProgramIsInstalled "brew" "Homebrew" true
+	echo "Homebrew not installed :/ Run install_brew.command";
 fi
 
 # ------
