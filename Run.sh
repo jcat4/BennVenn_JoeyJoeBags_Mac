@@ -3,6 +3,8 @@
 PATH=/usr/local/bin:$PATH
 echo $PATH
 
+sudo su
+
 # ================
 # Install Prereqs
 # ================
