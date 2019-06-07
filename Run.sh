@@ -76,7 +76,7 @@ validateBrewInstall "pipenv"
 # Setting up virtual environemnt for program
 # ==========================================
 
-pipenv --three;
+# pipenv --three;
 pipenv install -r requirements.txt;
 
 # ===============================================
@@ -87,3 +87,5 @@ echo "Currently running software!"
 pipenv run python3 -u JoeyJoebags336.py;
 echo "Software has closed"
 exit 0;
+
+# TODO read-only issues. May need to create env somewhere else
