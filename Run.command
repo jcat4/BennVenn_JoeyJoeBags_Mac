@@ -42,7 +42,9 @@ function validateBrewInstall () {
 # --------
 
 if !(validateProgramIsInstalled "brew" "Homebrew" false); then
-	echo "Homebrew not installed :/ Run install_brew.command";
+	echo "Attempting to install Homebrew...";
+	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)";
+	validateProgramIsInstalled "brew" "Homebrew" true
 fi
 
 # ------
@@ -77,8 +79,6 @@ validateBrewInstall "pipenv"
 # ==========================================
 
 # pipenv --three;
-echo "Pipenv output: ";
-pipenv --venv;
 echo "Doing pipenv install";
 pipenv install -r requirements.txt;
 
@@ -87,7 +87,6 @@ pipenv install -r requirements.txt;
 # ===============================================
 
 echo "Currently running software!"
-echo pwd;
 pipenv run python3 -u JoeyJoebags336.py;
 echo "Software has closed"
 exit 0;
