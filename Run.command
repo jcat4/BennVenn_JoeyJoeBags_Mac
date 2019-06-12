@@ -1,7 +1,7 @@
 #!/bin/bash
 
-PATH=/usr/local/bin:$PATH
-echo $PATH
+# Make sure we execute in current directory
+cd -- "$(dirname "$BASH_SOURCE")";
 
 # ================
 # Install Prereqs
@@ -87,8 +87,7 @@ pipenv install -r requirements.txt;
 # ===============================================
 
 echo "Currently running software!"
+echo pwd;
 pipenv run python3 -u JoeyJoebags336.py;
 echo "Software has closed"
 exit 0;
-
-# TODO read-only issues. May need to create env somewhere else
