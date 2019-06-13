@@ -53,3 +53,4 @@ Sure! Assuming you know how to use terminal and whatnot, just do the following:
 1. I plan on bundling this into a Mac OS app, so that you only have a single file to maintain.
 2. I would like to implement some kind of update functionality, so that you could easily upgrade to the newest version of Ben's code without me having to bundle and release a new version for each change.
 3. Miscellaneous changes to Ben's code that would make some actions more verbose and user-friendly. He's a busy boy, so I'll have to discuss a good way to work with him on that in the future.
+4. Create a video tutorial to walk ya through all of this, for the LAZY PEOPLE who **CAN'T READ** (jk, ilu bb's 😘)
