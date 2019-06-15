@@ -400,7 +400,8 @@ def main_readCartHeader():
     dat = dev.read(0x81,64)
     Header+=dat #Header contains 0xC0 bytes of header data
     ROMsize=(32768*( 2**(Header[0x48])))
-    app.ROMtitleLabel.set("ROM Title: "+str(Header[0x34:0x43],'utf-8'))
+    TITLE = ''.join([x for x in str(Header[0x34:0x43],'utf-8') if x in string.printable])
+    app.ROMtitleLabel.set(f"ROM Title: {TITLE}")
     app.ROMsizeLabel.set("ROM Size: "+str (32768*( 2**(Header[0x48]))))
     RAMsize=RAMtypes[Header[0x49]]
     app.RAMsizeLabel.set("RAM Size:"+str(RAMsize))
